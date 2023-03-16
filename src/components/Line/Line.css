@@ -1,0 +1,7 @@
+.line{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: .25em;
+    column-gap: .25em;
+}
