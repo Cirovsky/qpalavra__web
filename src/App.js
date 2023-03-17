@@ -34,10 +34,12 @@ function App() {
     [{}, {}, {}, {}, {}],
     [{}, {}, {}, {}, {}],
     [{}, {}, {}, {}, {}],
-  ])
+  ]);
 
   const[lives, setLives] = useState(5);
-
+  const [missLetters,setMissLetters] = useState([]);
+  const [goodTryLetters,setGoodTryLetters] = useState([]);
+  const [jackpotLetters,setJackpotLetters] = useState([]);
 
 
   const showLetter = (letter) => {
@@ -57,6 +59,9 @@ function App() {
     const newStyles = [...styleLetter];
     let line = gameStatus.line;
     let index = gameStatus.index;
+    let miss = [];
+    let goodTry = [];
+    let jackpot = [];
 
 
     if (letter.length === 1) {
@@ -75,9 +80,13 @@ function App() {
     }
 
     if (letter === 'Enter' && index > 4) {
-      [newStyles[line],won,newWordList[line]] = checkRiddleGuess(newWordList[line]);
+      [newStyles[line],won,newWordList[line], [miss, goodTry, jackpot]] = checkRiddleGuess(newWordList[line]);
       setStyleLetter(newStyles);
       remainLives--
+      setMissLetters(miss);
+      setGoodTryLetters(goodTry);
+      setJackpotLetters(jackpot);
+      updateKeys(miss, goodTry, jackpot);
 
       if(remainLives < 0){
         alert("você perdeu");
@@ -106,7 +115,20 @@ function App() {
     }
   }
 
+  const updateKeys = (miss,goodTry,jackpot)=>{
+    const newMiss = [...missLetters];
+    miss.forEach(letter => newMiss.push(letter));
+    setMissLetters(newMiss);
+    const newGoodTry = [...goodTryLetters];
+    goodTry.forEach(letter => newGoodTry.push(letter));
+    setGoodTryLetters(newGoodTry);
+    const newJackpot = [...jackpotLetters];
+    jackpot.forEach(letter => newJackpot.push(letter));
+    setJackpotLetters(newJackpot);
+  }
+
   document.body.onkeydown = (e) => showLetter(e.key);
+
 
   return (
     <main className='container__principal'>
@@ -119,7 +141,7 @@ function App() {
           <Line line={wordsList[4]} style={styleLetter[4]} />
           <Line line={wordsList[5]} style={styleLetter[5]} />
         </div>
-      <UserContext.Provider value={showLetter}>
+      <UserContext.Provider value={[showLetter,[missLetters,goodTryLetters,jackpotLetters]]}>
         <Keyboard/>
       </UserContext.Provider>
     </main>
