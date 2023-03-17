@@ -2,7 +2,7 @@ import './Letter.css'
 
 const Letter = (props) =>{
     return (
-        <li className="letter">{props.letter}</li>
+        <li className="letter" style={props.style}>{props.letter}</li>
     )
 }
 
