@@ -36,6 +36,8 @@ function App() {
     [{}, {}, {}, {}, {}],
   ]);
 
+  const [styleLine, setStyleLine] = useState([]);
+
   const[lives, setLives] = useState(5);
   const [missLetters,setMissLetters] = useState([]);
   const [goodTryLetters,setGoodTryLetters] = useState([]);
@@ -59,6 +61,8 @@ function App() {
     const newStyles = [...styleLetter];
     let line = gameStatus.line;
     let index = gameStatus.index;
+    let sLine = [...styleLine];
+
     let miss = [];
     let goodTry = [];
     let jackpot = [];
@@ -70,6 +74,9 @@ function App() {
       letter.charCodeAt() >=199 && letter.charCodeAt() <= 254){
         if (index < 5) {
           newWordList[line].splice(index, 1, letter);
+          const hit = checkRiddleGuess(letter,index);
+          sLine.push(hit);
+          setStyleLine(sLine);
         }
         if (index <= 4) {
           index++;
@@ -80,7 +87,8 @@ function App() {
     }
 
     if (letter === 'Enter' && index > 4) {
-      [newStyles[line],won,newWordList[line], [miss, goodTry, jackpot]] = checkRiddleGuess(newWordList[line]);
+      newStyles[line] = sLine.map(letter => letter.style);
+      setStyleLine([]);
       setStyleLetter(newStyles);
       remainLives--
       setMissLetters(miss);
@@ -109,6 +117,8 @@ function App() {
       if (index !== 0) {
         index--;
         newWordList[line].splice(index, 1, "");
+        sLine.pop();
+        setStyleLine(sLine);
         setwordsList(newWordList);
         setGameStatus({ index, line, won});
       }
