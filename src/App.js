@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Line from './components/Line';
 import { checkRiddleGuess} from './logic/guessingLogic';
+import Key from './components/Key';
 
 function App() {
 
@@ -104,6 +105,12 @@ function App() {
 
   document.body.onkeydown = (e) => showLetter(e.key);
 
+  const keyboard = [
+    ['q','w','e','r','t','y','u','i','o','p'],
+    ['a','s','d','f','g','h','j','k','l','Backspace'],
+    ['z','x','c','v','b','n','m','Enter'],
+  ]
+
   return (
     <>
       <Header />
@@ -116,6 +123,9 @@ function App() {
         <Line line={wordsList[5]} style={styleLetter[5]} />
       </main>
       <section className='keyboard'>
+        <div className='keyboard__line'>{keyboard[0].map( k => <Key value={k} key={k}/>)}</div>
+        <div className='keyboard__line'>{keyboard[1].map( k => <Key value={k} key={k}/>)}</div>
+        <div className='keyboard__line'>{keyboard[2].map( k => <Key value={k} key={k}/>)}</div>
       </section>
     </>
 

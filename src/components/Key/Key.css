@@ -1,0 +1,10 @@
+.key{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    margin: .25em;
+    width: 3vh;
+    height: 5vh;
+    text-transform: uppercase;
+}
