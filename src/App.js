@@ -109,20 +109,20 @@ function App() {
   document.body.onkeydown = (e) => showLetter(e.key);
 
   return (
-    <>
+    <main className='container__principal'>
       <Header />
-      <main className='container'>
-        <Line line={wordsList[0]} style={styleLetter[0]} />
-        <Line line={wordsList[1]} style={styleLetter[1]} />
-        <Line line={wordsList[2]} style={styleLetter[2]} />
-        <Line line={wordsList[3]} style={styleLetter[3]} />
-        <Line line={wordsList[4]} style={styleLetter[4]} />
-        <Line line={wordsList[5]} style={styleLetter[5]} />
-      </main>
+        <div className='board'>
+          <Line line={wordsList[0]} style={styleLetter[0]} />
+          <Line line={wordsList[1]} style={styleLetter[1]} />
+          <Line line={wordsList[2]} style={styleLetter[2]} />
+          <Line line={wordsList[3]} style={styleLetter[3]} />
+          <Line line={wordsList[4]} style={styleLetter[4]} />
+          <Line line={wordsList[5]} style={styleLetter[5]} />
+        </div>
       <UserContext.Provider value={showLetter}>
-      <Keyboard/>
+        <Keyboard/>
       </UserContext.Provider>
-    </>
+    </main>
 
   );
 }
