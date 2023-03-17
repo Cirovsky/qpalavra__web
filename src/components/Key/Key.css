@@ -1,10 +1,24 @@
+
 .key{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
-    margin: .25em;
+    background-color: rgb(174, 233, 233);
     width: 3vh;
     height: 5vh;
     text-transform: uppercase;
+    border-radius: .5vh;
+    font-weight: bold;
+}
+
+.enter, .backspace{
+    width: 4vh;
+}
+
+.enter img{
+    padding-left: .25vh;
+    width: 2.5vh;
+}
+.backspace img{
+    width: 2.5vh;
 }

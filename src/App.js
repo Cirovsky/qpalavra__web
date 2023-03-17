@@ -3,7 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import Line from './components/Line';
 import { checkRiddleGuess} from './logic/guessingLogic';
-import Key from './components/Key';
+import Keyboard from './components/Keyboard';
+import { UserContext } from './UserContext';
 
 function App() {
 
@@ -59,7 +60,9 @@ function App() {
 
 
     if (letter.length === 1) {
-      if (letter.charCodeAt() >= 65 && letter.charCodeAt() <= 122 ) {
+      if (letter.charCodeAt() >= 65 && letter.charCodeAt() <= 90 ||
+      letter.charCodeAt()>=97 && letter.charCodeAt() <=122 ||
+      letter.charCodeAt() >=199 && letter.charCodeAt() <= 254){
         if (index < 5) {
           newWordList[line].splice(index, 1, letter);
         }
@@ -72,7 +75,7 @@ function App() {
     }
 
     if (letter === 'Enter' && index > 4) {
-      [newStyles[line],won] = checkRiddleGuess(newWordList[line]);
+      [newStyles[line],won,newWordList[line]] = checkRiddleGuess(newWordList[line]);
       setStyleLetter(newStyles);
       remainLives--
 
@@ -105,12 +108,6 @@ function App() {
 
   document.body.onkeydown = (e) => showLetter(e.key);
 
-  const keyboard = [
-    ['q','w','e','r','t','y','u','i','o','p'],
-    ['a','s','d','f','g','h','j','k','l','Backspace'],
-    ['z','x','c','v','b','n','m','Enter'],
-  ]
-
   return (
     <>
       <Header />
@@ -122,11 +119,9 @@ function App() {
         <Line line={wordsList[4]} style={styleLetter[4]} />
         <Line line={wordsList[5]} style={styleLetter[5]} />
       </main>
-      <section className='keyboard'>
-        <div className='keyboard__line'>{keyboard[0].map( k => <Key value={k} key={k}/>)}</div>
-        <div className='keyboard__line'>{keyboard[1].map( k => <Key value={k} key={k}/>)}</div>
-        <div className='keyboard__line'>{keyboard[2].map( k => <Key value={k} key={k}/>)}</div>
-      </section>
+      <UserContext.Provider value={showLetter}>
+      <Keyboard/>
+      </UserContext.Provider>
     </>
 
   );

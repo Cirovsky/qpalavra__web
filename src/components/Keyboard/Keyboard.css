@@ -1,0 +1,21 @@
+.container__keyboard{
+  display: flex;
+  justify-content: center;
+}
+.keyboard{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-top: 1em;
+    row-gap: .5em;
+  }
+.keyboard__line{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  column-gap: .25em;
+}
+
+.line-top{
+  justify-content: flex-end;
+}

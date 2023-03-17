@@ -1,33 +1,43 @@
 import database from "../../database";
     
 const sortition = parseInt(Math.random()*(database.length))
-const riddle = Array.from(database[sortition])
+const riddle = ['T','E','R','Ç','A'] /* Array.from(database[sortition]); */
+const riddleNormalized = normalizeWord(riddle);
+console.log(riddleNormalized);
 const jackpot = '#228B22'
 const goodTry = '#DAA520'
 const miss = 'rgba(11, 12, 33, 0.6)'
 
+function normalizeWord (word){
+    word = word.join("");
+    return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "").split("");
+
+}
+
 const checkRiddleGuess = (guess) => {
     let hits = []
-    var checkRiddle = riddle.slice()
+    var checkRiddle = riddleNormalized.slice()
     guess = guess.join("").toUpperCase().split("");
+    const guessNormalized = normalizeWord(guess);
     for (let index in riddle){
-        if (riddle[index] == guess[index]) {
-            if (index != guess.indexOf(guess[index]) && 
-            hits[guess.indexOf(guess[index])]["backgroundColor"] == goodTry ){
-                hits[guess.indexOf(guess[index])]["backgroundColor"] = miss
+        if (riddleNormalized[index] == guessNormalized[index]) {
+            if (index != guessNormalized.indexOf(guessNormalized[index]) && 
+            hits[guessNormalized.indexOf(guessNormalized[index])]["backgroundColor"] == goodTry ){
+                hits[guessNormalized.indexOf(guessNormalized[index])]["backgroundColor"] = miss
             }          
             hits.push({ backgroundColor: jackpot })
-            checkRiddle.splice(checkRiddle.indexOf(guess[index]),1)
-        } else if (checkRiddle.indexOf(guess[index]) !== -1) {
-            checkRiddle.includes(guess[index])?
+            checkRiddle.splice(checkRiddle.indexOf(guessNormalized[index]),1)
+        } else if (checkRiddle.indexOf(guessNormalized[index]) !== -1) {
+            checkRiddle.includes(guessNormalized[index])?
             hits.push({ backgroundColor: goodTry })
             : hits.push({backgroundColor: miss})
-            checkRiddle.splice(checkRiddle.indexOf(guess[index]),1)
+            checkRiddle.splice(checkRiddle.indexOf(guessNormalized[index]),1)
         } else {
             hits.push({backgroundColor: miss})
         }
     }
-    return [hits, isWon(hits)];
+    const won = isWon(hits);
+    return [hits, won, won? riddle: guess];
 }
 
 const isWon = (hits)=>{
