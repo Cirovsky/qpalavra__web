@@ -4,15 +4,15 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(174, 233, 233);
-    width: 3vh;
-    height: 5vh;
+    width: 4vh;
+    height: 7vh;
     text-transform: uppercase;
     border-radius: .5vh;
     font-weight: bold;
 }
 
 .enter, .backspace{
-    width: 4vh;
+    width: 6vh;
 }
 
 .enter img{
