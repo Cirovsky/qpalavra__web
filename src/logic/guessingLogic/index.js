@@ -2,7 +2,7 @@ import database from "../../database";
 import {miss,goodTry,jackpot} from "../colors";
 
 const sortition = parseInt(Math.random() * (database.length))
-const riddle = ["T","E","S","T","A"] /* Array.from(database[sortition]); */
+const riddle = Array.from(database[sortition]);
 const riddleNormalized = normalizeWord(riddle);
 
 
