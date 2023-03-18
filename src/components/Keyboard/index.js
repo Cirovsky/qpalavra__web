@@ -1,12 +1,14 @@
 import Key from "../Key";
 import './Keyboard.css';
 
+
 const keyboard = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
     ['Enter','z', 'x', 'c', 'v', 'b', 'n', 'm','Backspace'],
 ]
 const Keyboard = (props) => {
+
     return (
         <section className="container__keyboard">
             <ul className='keyboard'>
