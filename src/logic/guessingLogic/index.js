@@ -7,7 +7,7 @@ const riddleNormalized = normalizeWord(riddle);
 console.log(riddleNormalized);
 
 function normalizeWord(word) {
-    if(typeof word == 'string'){
+    if(typeof word === 'string'){
         return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
     }else{
         word = word.join("");
@@ -19,7 +19,7 @@ function normalizeWord(word) {
 const checkRiddleGuess = (guessLetter,index) => {
     const gLetter = normalizeWord(guessLetter);
     let hit = {backgroundColor: miss}
-    if(riddleNormalized[index]== gLetter){
+    if(riddleNormalized[index] === gLetter){
         hit.backgroundColor = jackpot;
     }else{
         if (riddleNormalized.includes(gLetter)){

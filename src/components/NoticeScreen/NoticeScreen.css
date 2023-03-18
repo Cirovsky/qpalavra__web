@@ -1,0 +1,8 @@
+.notice-screen{
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    height: 90vh;
+    width: 100vw;
+    background-color: gray;
+}
