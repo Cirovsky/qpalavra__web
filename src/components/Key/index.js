@@ -1,10 +1,10 @@
 import './Key.css';
-import { UserContext } from '../../UserContext';
+import { KeyboardContext } from '../../Contexts/KeyboardContext';
 import { useContext } from 'react';
 
 const Key = (props) => {
 
-    const [show, triedLetters] = useContext(UserContext);
+    const [show, triedLetters] = useContext(KeyboardContext);
     let classColor = "";
     if(triedLetters.missLetters.includes(props.value.toUpperCase())){
         classColor = "miss";

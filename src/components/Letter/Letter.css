@@ -11,3 +11,6 @@
     padding: 0;
     margin: 0;
 }
+.selecionado{
+    border-color: rgb(255, 72, 0);
+}

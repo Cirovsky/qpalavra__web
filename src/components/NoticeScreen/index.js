@@ -1,13 +1,17 @@
 import './NoticeScreen.css';
+import { riddle } from '../../logic/guessingLogic';
 
 const NoticeScreen = (props) =>{
     const displayble = props.display? "flex": "none";
     return(
         <div className="notice-screen" style={{display: `${displayble}`}
         }
-            onClick={(e)=> e.target.style.display = 'none'}
+            onClick={()=> document.querySelector(".notice-screen").style.display = 'none'}
         >
-            <h2 className="notice">{props.notice}</h2>
+            <div className="notice">
+                <h2>{props.notice}</h2>
+                <p>a palavra de hoje é <span className='riddle'>{riddle.join("").toLowerCase()}</span></p>
+            </div>
         </div>
     )
 }

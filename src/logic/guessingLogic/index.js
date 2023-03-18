@@ -4,6 +4,7 @@ import {miss,goodTry,jackpot} from "../colors";
 const sortition = parseInt(Math.random() * (database.length))
 const riddle = Array.from(database[sortition]);
 const riddleNormalized = normalizeWord(riddle);
+console.log(riddle);
 
 
 function normalizeWord(word) {
@@ -40,7 +41,6 @@ const checkRiddleGuess = (guess) => {
     }
 
     const won = isWon(hits);
-    console.log(guess);
     return [hits, won, won ? riddle : guess, triedLetters(guess, hits)];
 }
 
@@ -64,4 +64,5 @@ const isWon = (hits) => {
 
 export {
     checkRiddleGuess,
+    riddle,
 }
