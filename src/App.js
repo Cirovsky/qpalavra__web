@@ -5,7 +5,6 @@ import Line from './components/Line';
 import Keyboard from './components/Keyboard';
 import { checkRiddleGuess } from './logic/guessingLogic';
 import { UserContext } from './UserContext';
-import { goodTry, jackpot, miss } from './logic/colors';
 import NoticeScreen from './components/NoticeScreen';
 
 function App() {
@@ -43,9 +42,9 @@ function App() {
   const [notice, setNotice] = useState(false);
 
   const [triedLetters, setTriedLetters] = useState({
-    missLetters: [],
-    goodTryLetters: [],
-    jackpotLetters: [],
+    missLetters: [""],
+    goodTryLetters: [""],
+    jackpotLetters: [""],
   })
 
 

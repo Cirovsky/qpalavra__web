@@ -5,6 +5,17 @@ import { useContext } from 'react';
 const Key = (props) => {
 
     const [show, triedLetters] = useContext(UserContext);
+    let classColor = "";
+    if(triedLetters.missLetters.includes(props.value.toUpperCase())){
+        classColor = "miss";
+    };
+    if(triedLetters.goodTryLetters.indexOf(props.value.toUpperCase()) != -1 ){
+        classColor = "goodtry";
+    }
+    if(triedLetters.jackpotLetters.includes(props.value.toUpperCase())){
+        classColor = "jackpot";
+    };
+
 
     if (props.value === 'Enter') {
         return (<span className='key enter' onClick={() => show(props.value)}>
@@ -16,7 +27,9 @@ const Key = (props) => {
             <img src='backspace.svg' alt='backspace' />
         </span>);
     }
-    return <span className="key" onClick={() => show(props.value)}>{props.value}</span>;
+    return <span className={`key ${classColor}`} 
+        onClick={() => show(props.value)}
+        >{props.value}</span>;
 }
 
 export default Key;
