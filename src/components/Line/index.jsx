@@ -2,6 +2,7 @@ import Letter from '../Letter';
 import './Line.css';
 
 const Line = (props) =>{
+
     return (
         <ul className='line'>
             <Letter letter = {props.line[0]} index={0} line={props.l} style={props.style[0]}/>

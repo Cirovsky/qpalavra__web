@@ -16,7 +16,7 @@ function App() {
     won: false,
   });
 
-  const cursor = document.getElementById('letter' + status.line + status.index);
+  const cursor = document.getElementById(`letter${status.line}${status.index}`);
   if (cursor != null) {
     cursor.classList.add('selecionado');
   }
@@ -63,12 +63,10 @@ function App() {
     let goodTryLetters;
     let jackpotLetters;
 
-    console.log(cursor);
-
     if (letter.length === 1) {
       if (letter.charCodeAt() >= 65 && letter.charCodeAt() <= 90 ||
-        letter.charCodeAt() >= 97 && letter.charCodeAt() <= 122 ||
-        letter.charCodeAt() >= 199 && letter.charCodeAt() <= 254) {
+      letter.charCodeAt() >= 97 && letter.charCodeAt() <= 122 ||
+      letter.charCodeAt() >= 199 && letter.charCodeAt() <= 254) {
         if (index < 5) {
           newWordList[line].splice(index, 1, letter);
         }
