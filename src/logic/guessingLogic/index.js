@@ -4,6 +4,7 @@ import {miss,goodTry,jackpot} from "../colors";
 const sortition = parseInt(Math.random() * (database.length))
 const riddle = Array.from(database[sortition]);
 const riddleNormalized = normalizeWord(riddle);
+console.log(riddle);
 
 function normalizeWord(word) {
     if(typeof word === 'string'){

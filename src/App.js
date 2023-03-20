@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Line from './components/Line';
 import Keyboard from './components/Keyboard';
 import { checkRiddleGuess } from './logic/guessingLogic';
 import { KeyboardContext } from './Contexts/KeyboardContext';
 import NoticeScreen from './components/NoticeScreen';
+import Board from './components/Board';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
 
   const cursor = document.getElementById(`letter${status.line}${status.index}`);
   if (cursor != null) {
-    cursor.classList.add('selecionado');
+    cursor.classList.add('selected');
   }
 
   const [wordsList, setwordsList] = useState([
@@ -99,7 +99,7 @@ function App() {
         newWordList[line].splice(index, 1, "");
         setwordsList(newWordList);
         if (cursor != null) {
-          cursor.classList.remove('selecionado');
+          cursor.classList.remove('selected');
         }
         setStatus({ index, line, won });
       }
@@ -122,26 +122,19 @@ function App() {
 
   document.body.onkeydown = (e) => showLetter(e.key);
   return (
-    <main
-      className='container__principal'
-    >
+    <>
       <Header />
       <NoticeScreen display={status.won || lives < 0}
         notice={status.won ? "ACERTOU!!" : "ERROU..."} />
-
-      <div className='board'>
-        <Line line={wordsList[0]} l={0} style={styleLetter[0]} />
-        <Line line={wordsList[1]} l={1} style={styleLetter[1]} />
-        <Line line={wordsList[2]} l={2} style={styleLetter[2]} />
-        <Line line={wordsList[3]} l={3} style={styleLetter[3]} />
-        <Line line={wordsList[4]} l={4} style={styleLetter[4]} />
-        <Line line={wordsList[5]} l={5} style={styleLetter[5]} />
-      </div>
+      <main>
+        <Board wordsList={wordsList} styleLetter={styleLetter} />
+      </main>
+      
       <KeyboardContext.Provider value={[showLetter, triedLetters]}>
         <Keyboard show={showLetter} />
       </KeyboardContext.Provider>
 
-    </main>
+    </>
 
   );
 }

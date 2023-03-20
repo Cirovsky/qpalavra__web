@@ -8,7 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: .25vh solid rgb(72, 90, 90);
+    color: var(--darkgray);
+    border: .25vh solid var(--darkgray);
     border-radius: 10%;
     width: 8vh;
     height: 7vh;
@@ -20,13 +21,13 @@
 
 .underline{
     margin-top: 1px;
-    width: 7vh;
+    width: 7.5vh;
     height: .5vh;
     border-radius: 3px;
 }
 
-.selecionado{
+.selected{
     display: block;
-    background-color: black;
+    background-color: var(--darkgray);
     
 }
