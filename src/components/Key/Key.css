@@ -13,7 +13,11 @@
     font-size: 1.5em;
 }
 
-.enter, .backspace{
+.enter{
+    width: 12vh;
+}
+
+.backspace{
     width: 6vh;
 }
 

@@ -13,7 +13,7 @@ const Letter = (props) => {
     return (
         props.line == 0 && props.index == 0? 
         <li className='letter__li'>
-            <p className={`letter ${props.style} ${actualLine==props.line? 'line_selected': ''}te`}>{props.letter}</p>
+            <p className={`letter ${props.style} ${actualLine==props.line? 'line_selected': ''}`}>{props.letter}</p>
             <div id={'letter'+ props.line + props.index} className='underline selected'></div>
         </li>:
         <li className='letter__li'>
