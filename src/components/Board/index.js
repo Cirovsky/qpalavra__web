@@ -5,7 +5,7 @@ const Board = (props) =>{
     const wordsList = props.wordsList;
     const styleLetter = props.styleLetter;
     return(
-        <div className='board'>
+      <div className='board'>
         <Line line={wordsList[0]} l={0} style={styleLetter[0]} />
         <Line line={wordsList[1]} l={1} style={styleLetter[1]} />
         <Line line={wordsList[2]} l={2} style={styleLetter[2]} />

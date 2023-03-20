@@ -13,17 +13,14 @@
     font-size: 1.5em;
 }
 
-.enter{
-    width: 12vh;
-}
-
-.backspace{
+.enter, .backspace{
     width: 6vh;
+    
 }
 
 .enter img{
     padding-left: .25vh;
-    width: 2.5vh;
+    width: 3.25vh;
 }
 .backspace img{
     width: 2.5vh;
