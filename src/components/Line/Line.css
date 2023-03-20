@@ -6,7 +6,3 @@
     display: flex;
     column-gap: .25em;
 }
-
-.line__selected{
-    background-color: rgb(247, 241, 207);
-}

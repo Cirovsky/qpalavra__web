@@ -32,6 +32,11 @@
     background-color: var(--darkgray);
     
 }
+
+.highlight{
+    background-color: var(--letter-highlight);
+}
+
 .class-miss{
     background-color: var(--miss-letter);
 }
