@@ -6,7 +6,7 @@ import { checkRiddleGuess } from './logic';
 import { KeyboardContext } from './Contexts/KeyboardContext';
 import NoticeScreen from './components/NoticeScreen';
 import Board from './components/Board';
-
+import { LineContext } from './Contexts/LineContext';
 function App() {
 
 
@@ -132,7 +132,9 @@ function App() {
       <NoticeScreen display={status.won || lives < 0}
         notice={status.won ? "ACERTOU!!" : "ERROU..."} />
       <main>
-        <Board wordsList={wordsList} styleLetter={styleLetter} />
+      <LineContext.Provider value={status.line}>
+        <Board wordsList={wordsList} styleLetter={styleLetter}/>
+      </LineContext.Provider>
       </main>
       
       <KeyboardContext.Provider value={[showLetter, triedLetters]}>

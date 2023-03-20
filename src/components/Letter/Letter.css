@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     color: var(--darkgray);
-    border: .25vh solid var(--darkgray);
+    border: .25vh solid var(--lightgray);
     border-radius: 10%;
     width: 8vh;
     height: 7vh;
@@ -32,11 +32,15 @@
     
 }
 .class-miss{
-    background-color: var(--miss);
+    background-color: var(--miss-letter);
 }
 .class-good-try{
     background-color: var(--good-try);
 }
 .class-jackpot{
     background-color: var(--jackpot);
+}
+
+.line_selected{
+    border-color: var(--darkgray);
 }

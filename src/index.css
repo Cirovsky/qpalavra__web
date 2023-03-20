@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 :root{
   --darkgray : rgb(72, 90, 90);
+  --lightgray:  rgb(114, 143, 143);
+  --darkgray-light: rgb(72, 90, 90,0.5);
   --good-try: rgba(218, 165, 32, 0.75);
   --miss:  rgba(98, 136, 136, 0.70);
+  --miss-letter: rgba(87, 112, 112, 0.7);
   --jackpot: rgba(34, 139, 34, 0.75);
 }
 

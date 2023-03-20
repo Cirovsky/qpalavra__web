@@ -1,7 +1,12 @@
 .line{
     list-style: none;
     padding: 0;
+    padding: .25em;
+    margin: 0;
     display: flex;
-    margin: .25em;
     column-gap: .25em;
+}
+
+.line__selected{
+    background-color: rgb(247, 241, 207);
 }

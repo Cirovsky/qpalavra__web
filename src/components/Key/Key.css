@@ -27,12 +27,12 @@
 
 .miss{
     background-color: var(--miss);
-    color:rgba(72, 90, 90, 0.50);
+    color: var(--darkgray-light);
 }
 
 .goodtry{
     background-color: var(--good-try);
-    color:rgba(72, 90, 90, 0.75);
+    color:var(--darkgray);
 }
 .jackpot{
     background-color: rgba(34, 139, 34, 0.75);
