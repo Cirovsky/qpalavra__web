@@ -15,7 +15,10 @@
 
 .enter, .backspace{
     width: 6vh;
-    
+    background-color: var(--miss);
+}
+.backspace svg, .enter svg{
+    fill: var(--darkgray-light);
 }
 
 .enter img{
@@ -26,9 +29,20 @@
 .press-enter{
     background-color: var(--jackpot);
 }
+.press-enter svg{
+    fill:rgb(199, 231, 231);
+}
 
 .backspace img{
     width: 2.5vh;
+}
+
+.undo{
+    background-color: rgb(164, 199, 199);
+
+}
+.undo svg{
+    fill: rgb(72, 90, 90);
 }
 
 .miss{
