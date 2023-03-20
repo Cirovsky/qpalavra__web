@@ -22,6 +22,11 @@
     padding-left: .25vh;
     width: 3.25vh;
 }
+
+.press-enter{
+    background-color: var(--jackpot);
+}
+
 .backspace img{
     width: 2.5vh;
 }

@@ -18,7 +18,7 @@ const Key = (props) => {
 
 
     if (props.value === 'Enter') {
-        return (<span className={`key enter ${index == ? 'press-enter': ''}`} onClick={() => show(props.value)}>
+        return (<span className={`key enter ${index == 5? 'press-enter': ''}`} onClick={() => show(props.value)}>
             {<img src='confirm.svg' alt='confirm guess' />}
         </span>);
     }

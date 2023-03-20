@@ -137,7 +137,7 @@ function App() {
       </LineContext.Provider>
       </main>
       
-      <KeyboardContext.Provider value={[showLetter, triedLetters]}>
+      <KeyboardContext.Provider value={[showLetter, triedLetters, status.index]}>
         <Keyboard show={showLetter} />
       </KeyboardContext.Provider>
 
