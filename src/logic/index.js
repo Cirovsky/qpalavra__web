@@ -1,5 +1,4 @@
-import database from "../../database";
-import {miss,goodTry,jackpot} from "../colors";
+import database from "../database";
 
 const sortition = parseInt(Math.random() * (database.length))
 const riddle = Array.from(database[sortition]);
@@ -24,18 +23,18 @@ const checkRiddleGuess = (guess) => {
     for (let index in riddle) {
         if (riddleNormalized[index] == guessNormalized[index]) {
             if (index != guessNormalized.indexOf(guessNormalized[index]) &&
-                hits[guessNormalized.indexOf(guessNormalized[index])]["backgroundColor"] == goodTry) {
-                hits[guessNormalized.indexOf(guessNormalized[index])]["backgroundColor"] = miss
+                hits[guessNormalized.indexOf(guessNormalized[index])] === 'class-good-try') {
+                hits[guessNormalized.indexOf(guessNormalized[index])] = 'class-miss'
             }
-            hits.push({ backgroundColor: jackpot })
+            hits.push('class-jackpot')
             checkRiddle.splice(checkRiddle.indexOf(guessNormalized[index]), 1)
         } else if (checkRiddle.indexOf(guessNormalized[index]) !== -1) {
             checkRiddle.includes(guessNormalized[index]) ?
-                hits.push({ backgroundColor: goodTry })
-                : hits.push({ backgroundColor: miss })
+                hits.push('class-good-try')
+                : hits.push('class-miss')
             checkRiddle.splice(checkRiddle.indexOf(guessNormalized[index]), 1)
         } else {
-            hits.push({ backgroundColor: miss })
+            hits.push('class-miss')
         }
     }
 
@@ -44,10 +43,10 @@ const checkRiddleGuess = (guess) => {
 }
 
 const triedLetters = (letters, hits) => {
-    const missLetters = letters.filter((letter,index) => hits[index]["backgroundColor"] == miss);
-    const goodTryLetters = letters.filter((letter,index) => hits[index]["backgroundColor"] == goodTry);
+    const missLetters = letters.filter((letter,index) => hits[index] === 'class-miss');
+    const goodTryLetters = letters.filter((letter,index) => hits[index] === 'class-good-try');
 
-    const jackpotLetters = letters.filter((letter,index) => hits[index]["backgroundColor"] == jackpot);
+    const jackpotLetters = letters.filter((letter,index) => hits[index] === 'class-jackpot');
 
 
 
@@ -55,7 +54,7 @@ const triedLetters = (letters, hits) => {
 }
 
 const isWon = (hits) => {
-    const checkHits = hits.map(e => e["backgroundColor"] == jackpot ? true : false)
+    const checkHits = hits.map(e => e === 'class-jackpot' ? true : false)
         .reduce((acc, next) => acc && next);
 
     return checkHits;

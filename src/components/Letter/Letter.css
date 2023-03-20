@@ -31,3 +31,12 @@
     background-color: var(--darkgray);
     
 }
+.class-miss{
+    background-color: var(--miss);
+}
+.class-good-try{
+    background-color: var(--good-try);
+}
+.class-jackpot{
+    background-color: var(--jackpot);
+}

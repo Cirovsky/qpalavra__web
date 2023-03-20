@@ -1,5 +1,5 @@
 import './NoticeScreen.css';
-import { riddle } from '../../logic/guessingLogic';
+import { riddle } from '../../logic';
 
 const NoticeScreen = (props) =>{
     const displayble = props.display? "flex": "none";

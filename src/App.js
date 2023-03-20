@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Keyboard from './components/Keyboard';
-import { checkRiddleGuess } from './logic/guessingLogic';
+import { checkRiddleGuess } from './logic';
 import { KeyboardContext } from './Contexts/KeyboardContext';
 import NoticeScreen from './components/NoticeScreen';
 import Board from './components/Board';
@@ -53,7 +53,7 @@ function App() {
       return;
     }
     let won = status.won;
-    let remainLives = lives;
+    let remainsLives = lives;
 
     const newWordList = [...wordsList];
     const newStyles = [...styleLetter];
@@ -82,8 +82,13 @@ function App() {
       [newStyles[line], won, newWordList[line], { missLetters, goodTryLetters, jackpotLetters }] = checkRiddleGuess(newWordList[line]);
       setStyleLetter(newStyles);
       updateKeys(missLetters, goodTryLetters, jackpotLetters);
-      remainLives--
-      setLives(remainLives);
+      remainsLives--
+      console.log(lives)
+      setLives(remainsLives);
+      if(won){
+        setStatus({index, line, won});
+        return;
+      }
 
       if (line < 5) {
         line++
