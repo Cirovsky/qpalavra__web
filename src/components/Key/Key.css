@@ -74,11 +74,16 @@
 
 .miss{
     background-color: var(--miss);
-    border-color: var(--miss);
     color: var(--darkgray-light);
 }
 .miss:active{
     background-color: var(--miss-active);
+}
+
+.inactive:active{
+    background-color:  var(--miss);
+    color: var(--darkgray-light);
+    font-size: 1.4em;
 }
 
 .goodtry{
