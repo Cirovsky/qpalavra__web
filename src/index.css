@@ -3,13 +3,13 @@
   --darkgray : rgb(72, 90, 90);
   --lightgray:  rgb(132, 161, 161);
   --darkgray-light: rgb(72, 90, 90,0.5);
-  --good-try: rgba(218, 165, 32, 0.75);
+  --good-try: rgba(218, 165, 32);
   --good-try-active: rgba(214, 182, 100, 0.75);
   --miss:  rgba(98, 136, 136, 0.70);
   --miss-active:  rgba(130, 167, 167, 0.7);
-  --miss-letter: rgba(87, 112, 112, 0.7);
-  --jackpot: rgba(34, 139, 34, 0.75);
-  --jackpot-active: rgba(70, 156, 70, 0.75);
+  --miss-letter: rgb(132, 150, 150);
+  --jackpot: rgb(74, 158, 74);
+  --jackpot-active: rgba(110, 172, 110, 0.75);
   --letter-highlight: rgb(219, 250, 255);
 }
 
