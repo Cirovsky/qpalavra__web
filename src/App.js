@@ -132,7 +132,7 @@ function App() {
       <NoticeScreen display={status.won || lives < 0}
         notice={status.won ? "ACERTOU!!" : "ERROU..."} />
       <main>
-      <LineContext.Provider value={status.line}>
+      <LineContext.Provider value={[status.line, status.won]}>
         <Board wordsList={wordsList} styleLetter={styleLetter}/>
       </LineContext.Provider>
       </main>
