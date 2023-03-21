@@ -1,4 +1,3 @@
-
 .key{
     display: inline-flex;
     justify-content: center;
@@ -13,10 +12,25 @@
     font-size: 1.5em;
 }
 
+.key:active{
+    background-color: rgb(185, 211, 211);
+    color:rgb(117, 139, 139);
+    font-size: 1.4em;
+}
+
 .enter, .backspace{
     width: 6vh;
     background-color: var(--miss);
 }
+
+.enter:active{
+    background-color: var(--miss);
+}
+
+.backspace:active{
+    background-color: var(--miss);
+}
+
 .backspace svg, .enter svg{
     fill: var(--darkgray-light);
 }
@@ -29,6 +43,15 @@
 .press-enter{
     background-color: var(--jackpot);
 }
+
+.press-enter:active{
+    background-color: var(--jackpot-active);
+}
+.press-enter svg:active{
+    width: 3.4vh;
+    height: 3.4vh;
+}
+
 .press-enter svg{
     fill:rgb(199, 231, 231);
 }
@@ -44,17 +67,33 @@
 .undo svg{
     fill: rgb(72, 90, 90);
 }
+.undo svg:active{
+    width: 3.4vh;
+    height: 3.4vh;
+}
 
 .miss{
     background-color: var(--miss);
+    border-color: var(--miss);
     color: var(--darkgray-light);
+}
+.miss:active{
+    background-color: var(--miss-active);
 }
 
 .goodtry{
     background-color: var(--good-try);
     color:var(--darkgray);
 }
+.goodtry:active{
+    background-color: var(--good-try-active);
+}
+
 .jackpot{
     background-color: rgba(34, 139, 34, 0.75);
-    color:rgb(199, 231, 231);
+    color:rgb(222, 240, 240);
+}
+.jackpot:active{
+    background-color: rgba(114, 160, 114, 0.75);
+    color:rgba(222, 240, 240);
 }
